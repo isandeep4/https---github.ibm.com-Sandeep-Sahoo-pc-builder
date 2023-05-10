@@ -12,11 +12,11 @@ import { Products } from 'src/store/app.interface';
 export class ProductService {
   constructor(private http: HttpClient) {}
   private url = '../assets/data.json';
-  getAll() {
-    return this.http.get(this.url).pipe(map(res =>res as Products))
-   }
+  // getAll() {
+  //   return this.http.get(this.url).pipe(map(res =>res as Products))
+  //  }
   getAxiosData() {
-    return axios.get("../assets/data.json")
+    return axios.get(this.url);
    }
 }
 

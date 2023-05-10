@@ -22,6 +22,7 @@ export class CartComponent implements OnInit{
   selectedProcessorPrice: string;
   selectedMotherboardPrice: string;
   selectedRamPrice: string;
+  totalPrice = 0;
   componentData: [];
   displayedColumns: string[] = ['Product', 'ChangeItem', 'Price'];
   cartItems: ProductType[] = [];
@@ -43,11 +44,7 @@ export class CartComponent implements OnInit{
       }        
       );
   }
-
-  pr_bt_clicks = 1;
-  mb_bt_clicks = 1;
-  rm_bt_clicks = 1;
-  totalPrice = 0;
+  
 
   onAddClick(selected: any) {
     const clickedItemIndex = this.cartItems.findIndex(item => item.productName === selected.productName)
@@ -62,18 +59,6 @@ export class CartComponent implements OnInit{
     }
     this.cartItems[clickedItemIndex] = currentItem;
     this.dataSource = new MatTableDataSource(this.cartItems);
-    //this.cartItems[clickedItemIndex] = {...this.cartItems[clickedItemIndex], count: }
-    // if(id === 'pr_bt'){
-    //   this.pr_bt_clicks += 1;
-    //   document.getElementById("pr_bt_clicks")!.innerHTML = this.pr_bt_clicks.toString();
-    // } else if(id === 'mb_bt'){
-    //   this.mb_bt_clicks += 1;
-    //   document.getElementById("mb_bt_clicks")!.innerHTML = this.mb_bt_clicks.toString();
-    // } else {
-    //   this.rm_bt_clicks += 1;
-    //   document.getElementById("rm_bt_clicks")!.innerHTML = this.rm_bt_clicks.toString();
-    // }
-    
   };
   
   onRemoveClick(selected: any){
@@ -90,24 +75,6 @@ export class CartComponent implements OnInit{
     }
     this.cartItems[clickedItemIndex] = currentItem;
     this.dataSource = new MatTableDataSource(this.cartItems);
-    }
-    
-    // if(id === 'pr_bt' && this.pr_bt_clicks > 1){
-    //   this.pr_bt_clicks -= 1;
-    //   document.getElementById("pr_bt_clicks")!.innerHTML = this.pr_bt_clicks.toString();
-    // } else if(id === 'mb_bt' && this.mb_bt_clicks > 1){
-    //   this.mb_bt_clicks -= 1;
-    //   document.getElementById("mb_bt_clicks")!.innerHTML = this.mb_bt_clicks.toString();
-    // } else if(id === 'rm_bt' && this.rm_bt_clicks > 1) {
-    //   this.rm_bt_clicks -= 1;
-    //   document.getElementById("rm_bt_clicks")!.innerHTML = this.rm_bt_clicks.toString();
-    // }
-  }
-  calculateComponentPrice(individualPrice: any, bt_clicks:any){
-    if(individualPrice){
-      return Number(individualPrice)*bt_clicks;
-    } else {
-      return;
     }
   }
   calculateTotal(){
