@@ -24,7 +24,7 @@ export class CartComponent implements OnInit{
   selectedRamPrice: string;
   totalPrice = 0;
   componentData: [];
-  displayedColumns: string[] = ['Product', 'ChangeItem', 'Price'];
+  displayedColumns: string[] = ['Product', 'ChangeItem', 'Price', 'Delete'];
   cartItems: ProductType[] = [];
   dataSourceEmpty = [];
   dataSource = new MatTableDataSource(this.cartItems);
@@ -74,11 +74,18 @@ export class CartComponent implements OnInit{
       currentItem.price = (Number(this.selectedRamPrice) * currentItem.count).toString();
     }
     this.cartItems[clickedItemIndex] = currentItem;
-    this.dataSource = new MatTableDataSource(this.cartItems);
+    this.updateDataSource();
     }
   }
   calculateTotal(){
     this.totalPrice = this.cartItems.map(item => Number(item.price)).reduce((prev, next) => prev + next);
     return this.totalPrice;
+  }
+  removeCart(index: number) {
+    this.cartItems.splice(index, 1);
+    this.updateDataSource();
+  }
+  updateDataSource() {
+    this.dataSource.data = this.cartItems;
   }
 }
