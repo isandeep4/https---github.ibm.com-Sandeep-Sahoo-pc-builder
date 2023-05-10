@@ -15,18 +15,8 @@ export class ProductService {
   getAll() {
     return this.http.get(this.url).pipe(map(res =>res as Products))
    }
-  // getAll() {
-  //   return axios.get("../assets/data.json")
-  //   .then(res => console.log(res.data))
-  //   .catch(err => console.log('error found',err));
-  //  }
-//    getProductDetails(id:number):Observable<Product>{{ 
-//     return this.http.get<Product[]>(this.url)
-//     .pipe(
-//       flatMap(products => products),
-//       first(product => product.id === id)
-//     );
-//  }
-// }
+  getAxiosData() {
+    return axios.get("../assets/data.json")
+   }
 }
 

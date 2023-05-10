@@ -11,15 +11,18 @@ export interface Products {
 
 export interface Processor {
     productName: string,
-    price?: number,
+    price: string,
+    count: number,
 }
 export interface Motherboard {
     productName: string,
-    price?: number,
+    price: string,
+    count: number,
 }
 export interface Ram {
     productName: string,
-    price?: number,
+    price: string,
+    count: number,
 }
 export interface CartItems {
     selectedProducts: Products,

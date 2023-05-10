@@ -16,7 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { PcBuilderEffects } from 'src/store/effects/app.effect';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { FormsModule } from '@angular/forms';
-import { CartComponent } from './cart/cart.component'
+import { CartComponent } from './cart/cart.component';
+import {MatTableModule} from '@angular/material/table';
+
 
 
 const routes: Routes = [
@@ -31,6 +33,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    MatTableModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
@@ -39,6 +42,7 @@ const routes: Routes = [
     EffectsModule.forRoot([PcBuilderEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }) 
   ],
+  exports: [MatTableModule],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
   bootstrap: [AppComponent]

@@ -70,3 +70,25 @@ td {
 table {
     border-collapse: collapse;
 }
+.select-wrap 
+{
+  border: 1px solid #777;
+  border-radius: 4px;
+  padding: 0 5px 5px;
+  width:300px;
+  background-color:#ebebeb;
+}
+
+.select-wrap label
+{
+  font-size:10px;
+  text-transform: uppercase;
+  color: #777;
+  padding: 2px 8px 0;
+}
+
+select
+{
+  background-color: #ebebeb;
+  border:0px;
+}

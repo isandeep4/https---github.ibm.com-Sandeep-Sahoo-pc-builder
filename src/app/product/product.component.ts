@@ -17,7 +17,7 @@ import { selectPcBuilderStatus } from 'src/store/selectors/app.selector';
 
 export class ProductComponent implements OnInit {
   products: Products;
-  selectedProcessor: string = 'Add Processor Component';
+  selectedProcessor: string;
   selectedMotherboard: string;
   selectedRam: string;
 
@@ -33,13 +33,11 @@ export class ProductComponent implements OnInit {
       );   
   }
   onProcessorChange(val:any){
-    console.log('selected pr', JSON.parse(val));
     this.store.dispatch(addProcessorToCart({
      processor: JSON.parse(val)
     }));
   }
   onMbChange(val:any){
-    console.log('selected mb',val);
     this.store.dispatch(addMbToCart({
       motherboard: JSON.parse(val)
     }));
@@ -48,6 +46,9 @@ export class ProductComponent implements OnInit {
     this.store.dispatch(addRamToCart({
       ram: JSON.parse(val)
     }));
+  }
+  goToCart(){
+    this.router.navigate(['/cart']);
   }
   
   
